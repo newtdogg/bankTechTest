@@ -24,9 +24,10 @@ describe("User", function() {
   })
 
   it("should allow a user to withdraw money from their bank account", function(){
+    account.currentFunds = 50
     user.withdraw(50)
-    expect(user.displayBalance).toEqual(100)
-  }) //  THIS TEST NEEDS FIXING
+    expect(user.displayBalance).toEqual(50)
+  })
 
 
 })
