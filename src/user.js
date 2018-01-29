@@ -1,12 +1,13 @@
-function User(){
-  this.bank = null
+function User(account = new Account){
+  this.account = account
   this.displayBalance = 0
 }
 
-User.prototype.openNewAccount = function(bank = new Bank){
-  this.bank = bank
+User.prototype.depositMoney = function (amount) {
+  this.account.storeMoney(amount)
+  this.updateBalance()
 }
 
 User.prototype.updateBalance = function () {
-  this.displayBalance = this.bank.currentFunds
+  this.displayBalance = this.account.currentFunds
 };
