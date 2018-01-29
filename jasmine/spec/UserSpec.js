@@ -2,9 +2,11 @@ describe("User", function() {
 
   var user;
   var account;
+  var transaction;
 
   beforeEach(function() {
     account = jasmine.createSpyObj('account',['storeMoney', 'releaseMoney', 'currentFunds'])
+    transaction = jasmine.createSpyObj('transaction',['formatDateTime', 'moneyChanged', 'remainingBalance', 'transactionType'])
     user = new User(account);
     account.currentFunds = 100
 
@@ -29,5 +31,8 @@ describe("User", function() {
     expect(user.displayBalance).toEqual(50)
   })
 
-
+  it("should create a new transaction when a user deposits/withdraws money", function() {
+    user.withdraw(50)
+    expect(user.transactions[1]).not.toBeNull()
+  })
 })
