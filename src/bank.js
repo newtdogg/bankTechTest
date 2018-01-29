@@ -1,11 +1,11 @@
 function Bank(){
-  this.displayBalance = 0
+  this.currentFunds = 0
 }
 
-Bank.prototype.deposit = function (amount) {
-  this.displayBalance += amount
+Bank.prototype.storeMoney = function (amount) {
+  this.currentFunds += amount
 };
 
-Bank.prototype.withdraw = function (amount) {
-  this.displayBalance -= amount
+Bank.prototype.releaseMoney = function (amount) {
+  this.currentFunds -= amount
 }
