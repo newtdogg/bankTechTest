@@ -9,9 +9,12 @@ describe("Statement", function(){
     statement = new Statement(user.transactions)
   })
 
-  it("should print the list of user transactions", function(){
+  it("should have a heading of the transactions statement table", function(){
+    expect(statement.formattedStatement).toEqual(`| Date | Net Change (£) | Transaction Type | Remaining Balance |`)
+  })
+
+  it("should format the transactions in the table", function(){
     statement.printer()
-    expect(statement.formattedStatement).toEqual(`| Date | Net Change (£) | Transaction Type | Remaining Balance |
-|29/01/2018, 15:00:14|50|deposit|100|\n`)
+    expect(statement.formattedStatement).toEqual(`| Date | Net Change (£) | Transaction Type | Remaining Balance |\n|29/01/2018, 15:00:14|50|deposit|100|`)
   })
 })
