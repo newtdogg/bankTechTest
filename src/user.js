@@ -3,8 +3,13 @@ function User(account = new Account){
   this.displayBalance = 0
 }
 
-User.prototype.depositMoney = function (amount) {
+User.prototype.deposit = function (amount) {
   this.account.storeMoney(amount)
+  this.updateBalance()
+}
+
+User.prototype.withdraw = function (amount) {
+  this.account.releaseMoney(amount)
   this.updateBalance()
 }
 
