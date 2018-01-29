@@ -16,7 +16,7 @@ describe("Bank", function() {
     expect(bank.displayBalance).toEqual(10)
   })
 
-  it("should be able to withdraw deposited money", function() {
+  it("should be able to have money withdrawn", function() {
     bank.deposit(100);
     bank.withdraw(20);
     expect(bank.displayBalance).toEqual(80);
