@@ -8,6 +8,17 @@ describe("Bank", function() {
 
   it("should be able to hold deposited money", function() {
     bank.deposit(100);
-    expect(bank.currentAvailableFunds).toEqual(100.00);
+    expect(bank.displayBalance).toEqual(100);
   });
+
+  it("should allow a user to see available funds", function() {
+    bank.deposit(10)
+    expect(bank.displayBalance).toEqual(10)
+  })
+
+  it("should be able to withdraw deposited money", function() {
+    bank.deposit(100);
+    bank.withdraw(20);
+    expect(bank.displayBalance).toEqual(80);
+  })
 });
